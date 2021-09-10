@@ -1,5 +1,4 @@
-@Library('welcome-java')
-
+@Library('welcome-java') _
 
 pipeline {
     agent any
