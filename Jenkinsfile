@@ -5,6 +5,7 @@ pipeline {
     stages {
         stage('Demo') {
             steps {
+                echo 'Starting build...'
                 javabuild
             }
         }
