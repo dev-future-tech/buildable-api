@@ -6,7 +6,7 @@ pipeline {
         stage('Demo') {
             steps {
                 echo 'Starting build...'
-                javabuild
+                sayHello 'Anthony'
             }
         }
     }
