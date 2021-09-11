@@ -7,8 +7,7 @@ pipeline {
             steps {
                 echo 'Starting build...'
                 sayHello 'Anthony'
-
-                welcomeMessage
+                welcomeMessage ''
             }
         }
     }
