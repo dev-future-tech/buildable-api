@@ -1,7 +1,7 @@
 @Library('welcome-java') _
 
 pipeline {
-    agent kubernetes
+    agent "kubernetes"
     stages {
         stage('Demo') {
             steps {
