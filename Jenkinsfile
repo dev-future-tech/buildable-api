@@ -3,7 +3,7 @@
 import org.tw.build.java.PodTemplates
 buildTemplates = new PodTemplates()
 
-buildTempaltes.javaTemplate (
+buildTemplates.javaTemplate (
     node(POD_LABEL) {
         stage('Run maven version') {
             git url: 'https://github.com/dev-future-tech/buildable-api.git', branch: 'main'
