@@ -6,6 +6,7 @@ podTemplate (
     ]) {
     node(POD_LABEL) {
         stage('Run maven version') {
+            git 'https://github.com/dev-future-tech/buildable-api.git'
             container ('java') {
                 stage('Get Maven version') {
                     sh 'pwd'
