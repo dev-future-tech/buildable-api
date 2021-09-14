@@ -8,6 +8,7 @@ podTemplate (
             container ('maven') {
                 stage('Get Maven version') {
                     sh 'mvn -version'
+                    sh 'mvn clean install'
                 }
             }
         }
