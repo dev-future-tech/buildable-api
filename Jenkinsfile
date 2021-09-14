@@ -1,14 +1,17 @@
 podTemplate (
     containers: [
+        containerTemplate(name: 'java', image: 'openjdk:11-oracle', command: 'sleep', args: '99d'),
         containerTemplate(name: 'maven', image: 'maven:3.8.1-jdk-8', command: 'sleep', args: '99d'),
         containerTemplate(name: 'terraform', image: 'hashicorp/terraform:1.0.6', command: 'sleep', args: '99d')
     ]) {
     node(POD_LABEL) {
-        stage('Run maven') {
-            container ('maven') {
+        stage('Run maven version') {
+            container ('java') {
                 stage('Get Maven version') {
-                    sh 'mvn -version'
-                    sh 'mvn clean install'
+                    sh './mvnw -version'
+                }
+                stage('Build project') {
+                    sh './mvnw clean install'
                 }
             }
         }
