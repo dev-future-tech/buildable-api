@@ -3,7 +3,7 @@
 import org.tw.build.java.PodTemplates
 buildTemplates = new PodTemplates()
 
-buildTemplates (
+buildTemplates {
     stage('Run maven version') {
         git url: 'https://github.com/dev-future-tech/buildable-api.git', branch: 'main'
         stage('Get Maven version') {
@@ -15,7 +15,7 @@ buildTemplates (
             sh './mvnw clean package'
         }
     }
-)
+}
 
 /*
 podTemplate (
