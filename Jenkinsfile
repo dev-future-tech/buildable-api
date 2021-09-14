@@ -4,17 +4,15 @@ import org.tw.build.java.PodTemplates
 buildTemplates = new PodTemplates()
 
 buildTemplates.javaTemplate (
-    node(POD_LABEL) {
-        stage('Run maven version') {
-            git url: 'https://github.com/dev-future-tech/buildable-api.git', branch: 'main'
-            stage('Get Maven version') {
-                sh 'pwd'
-                sh 'ls -l'
-                // sh './mvnw -version'
-            }
-            stage('Build project') {
-                sh './mvnw clean package'
-            }
+    stage('Run maven version') {
+        git url: 'https://github.com/dev-future-tech/buildable-api.git', branch: 'main'
+        stage('Get Maven version') {
+            sh 'pwd'
+            sh 'ls -l'
+            // sh './mvnw -version'
+        }
+        stage('Build project') {
+            sh './mvnw clean package'
         }
     }
 )
