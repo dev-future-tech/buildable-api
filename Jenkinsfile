@@ -8,6 +8,7 @@ pipeline {
                 echo 'Starting build...'
                 sayHello 'Anthony'
                 welcomeMessage()
+                echo agentPodYaml.getWithContainers('java', 'dotnet')
             }
         }
     }
