@@ -8,7 +8,9 @@ podTemplate (
         stage('Run maven version') {
             container ('java') {
                 stage('Get Maven version') {
-                    sh './mvnw -version'
+                    sh 'pwd'
+                    sh 'ls -l'
+                    // sh './mvnw -version'
                 }
                 stage('Build project') {
                     sh './mvnw clean install'
