@@ -6,7 +6,7 @@ podTemplate (
     ]) {
     node(POD_LABEL) {
         stage('Run maven version') {
-            git 'https://github.com/dev-future-tech/buildable-api.git'
+            git url: 'https://github.com/dev-future-tech/buildable-api.git', branch: 'main'
             container ('java') {
                 stage('Get Maven version') {
                     sh 'pwd'
@@ -17,9 +17,6 @@ podTemplate (
                     sh './mvnw clean install'
                 }
             }
-        }
-
-        stage('Run infra') {
             container('terraform') {
                 stage('get terraform version') {
                     sh 'terraform version'
