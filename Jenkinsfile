@@ -3,7 +3,7 @@
 pipeline {
     agent {
         kubernetes {
-            inheritFrom podTemplates.dockerTemplate
+            inheritFrom "default"
         }
     }
     stages {
