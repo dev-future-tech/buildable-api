@@ -19,7 +19,7 @@ pipeline {
         stage('Test Pod Template') {
             steps {
                 echo 'testing pod template'
-                container('maven') {
+                podTemplates.mavenTemplate {
                     sh 'mvn -version'
                 }
             }
