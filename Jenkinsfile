@@ -1,7 +1,11 @@
 @Library('welcome-java') _
 
 pipeline {
-    agent "kubernetes"
+    agent {
+        kubernetes {
+            inheritFrom 'default'
+        }
+    }
     stages {
         stage('Demo') {
             steps {
