@@ -23,8 +23,10 @@ pipeline {
     }
     stages {
         stage('Build project') {
-            container('java') {
-                sh './mvnw clean package'
+            steps {
+                container('java') {
+                    sh './mvnw clean package'
+                }
             }
         }
     }
