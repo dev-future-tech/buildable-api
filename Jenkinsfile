@@ -1,27 +1,31 @@
 @Library('welcome-java') _
 
-import org.tw.build.java.PodTemplates
-buildTemplates = new PodTemplates()
-
-buildTemplates {
-    stage('Run maven version') {
-        git url: 'https://github.com/dev-future-tech/buildable-api.git', branch: 'main'
-        stage('Get Maven version') {
-            sh 'pwd'
-            sh 'ls -l'
-            // sh './mvnw -version'
+pipeline {
+    agent {
+        kubernetes {
+            yaml: '''apiVersion: v1
+        kind: Pod
+        metadata:
+          labels:
+            some-label: some-label-value
+        spec:
+          containers:
+          - name: java
+            image: openjdk:11-oracle
+            command: ['sleep', '99d']
+            tty: true
+          - name: terraform
+            image: hashicorp/terraform:1.0.6
+            command: command: ['sleep', '99d']
+            tty: true
+        '''
         }
+    }
+    stages {
         stage('Build project') {
-            sh './mvnw clean package'
+            container('java') {
+                sh './mvnw clean package'
+            }
         }
     }
 }
-
-/*
-podTemplate (
-    containers: [
-        containerTemplate(name: 'java', image: 'openjdk:11-oracle', command: 'sleep', args: '99d'),
-        containerTemplate(name: 'terraform', image: 'hashicorp/terraform:1.0.6', command: 'sleep', args: '99d')
-    ]) {
-}
-*/
