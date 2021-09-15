@@ -17,7 +17,7 @@ pipeline {
             tty: true
           - name: terraform
             image: hashicorp/terraform:1.0.6
-            command: command: ['sleep', '99d']
+            command: ['sleep', '99d']
             tty: true
         '''
         }
