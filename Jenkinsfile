@@ -28,9 +28,6 @@ pipeline {
                 container('java') {
                     sh './mvnw clean package'
                 }
-                container('docker') {
-                    sh "docker build ."
-                }
                 container('terraform') {
                     sh 'terraform --version'
                 }
