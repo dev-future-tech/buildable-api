@@ -3,6 +3,9 @@ terraform {
     endpoint = "http://my-minio-service:9000"
     key = "terraform.tfstate"
     region = "main"
+    access_key = "minio"
+    secret_key = "miniostorage"
+    bucket = "terraform"
     skip_requesting_account_id = true
     skip_credentials_validation = true
     skip_get_ec2_platforms = true

@@ -33,7 +33,7 @@ pipeline {
         stage('Deploy application') {
             steps {
                 container('terraform') {
-                    sh 'terraform init -backend-config="access_key=minio" -backend-config="secret_key=miniostorage" -backend-config="bucket=terraform"'
+                    sh 'terraform init'
                     sh 'terraform plan'
                     sh 'terraform apply'
                 }
