@@ -1,6 +1,6 @@
 terraform {
   backend "s3" {
-    endpoint = "http://my-minio-service:9000"
+    endpoint = "http://my-minio-service.default.svc:9000/"
     key = "terraform.tfstate"
     region = "main"
     access_key = "minio"
