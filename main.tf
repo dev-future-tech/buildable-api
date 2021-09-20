@@ -1,6 +1,6 @@
 terraform {
   backend "s3" {
-    endpoint = "http://my-minio-service.default.svc:9000"
+    endpoint = "http://my-minio-service.default.svc.cluster.local:9000"
     key = "terraform.tfstate"
     region = "main"
     skip_requesting_account_id = true
