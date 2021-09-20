@@ -28,15 +28,15 @@ pipeline {
                 container('java') {
                     sh './mvnw clean package'
                 }
-                container('terraform') {
-                    sh 'terraform init -backend-config="access_key=jenkinsterraform" -backend-config="secret_key=buildinfra" -backend-config="bucket=terraform"'
-                    sh 'terraform plan'
-                    sh 'terraform apply'
-                }
             }
         }
         stage('Deploy application') {
             steps {
+                container('terraform') {
+                    sh 'terraform init -backend-config="access_key=minio" -backend-config="secret_key=miniostorage" -backend-config="bucket=terraform"'
+                    sh 'terraform plan'
+                    sh 'terraform apply'
+                }
                 container('java') {
                     sh 'java -version'
                 }
