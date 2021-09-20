@@ -29,7 +29,7 @@ pipeline {
                     sh './mvnw clean package'
                 }
                 container('terraform') {
-                    sh 'terraform -backend-config="access_key=jenkinsterraform" -backend-config="secret_key=buildinfra" -backend-config="bucket=terraform" init'
+                    sh 'terraform init -backend-config="access_key=jenkinsterraform" -backend-config="secret_key=buildinfra" -backend-config="bucket=terraform"'
                     sh 'terraform plan'
                     sh 'terraform apply'
                 }
