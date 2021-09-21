@@ -26,7 +26,7 @@ pipeline {
         stage('Build project') {
             steps {
                 container('java') {
-                    sh './mvnw clean package'
+                    sh './mvnw -DskipTests=true clean package'
                 }
             }
         }
