@@ -3,6 +3,8 @@ kind: Component
 metadata:
   name: buildable-api
   description: API that builds in a build system
+  annotations:
+    jenkins.io/github-folder: 'buildable-api/buildable-api'
 spec:
   type: service
   lifecycle: experimental
