@@ -1,0 +1,9 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: buildable-api
+  description: API that builds in a build system
+spec:
+  type: service
+  lifecycle: experimental
+  owner: anthony.ikeda@gmail.com
