@@ -1,5 +1,3 @@
-@Library('welcome-java') _
-
 pipeline {
     agent {
         kubernetes {
@@ -23,22 +21,17 @@ pipeline {
         }
     }
     stages {
-        stage('Build project') {
+        stage('Build and unit test') {
             steps {
                 container('java') {
-                    sh './mvnw -DskipTests=true clean package'
+                    sh './mvnw clean verify'
                 }
             }
         }
-        stage('Deploy application') {
+        stage('Package project') {
             steps {
-                container('terraform') {
-                    sh 'terraform init'
-                    sh 'terraform plan'
-                    sh 'terraform apply -auto-approve'
-                }
                 container('java') {
-                    sh 'java -version'
+                    sh './mvnw -DskipTests=true package'
                 }
             }
         }
