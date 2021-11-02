@@ -13,10 +13,6 @@ pipeline {
             image: openjdk:11-oracle
             command: ['sleep', '99d']
             tty: true
-          - name: terraform
-            image: hashicorp/terraform:1.0.6
-            command: ['sleep', '99d']
-            tty: true
         '''
         }
     }
